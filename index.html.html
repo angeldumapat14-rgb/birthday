@@ -1,0 +1,1106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#241333" />
+  <title>Angel Dumapat | Twenty &amp; Thriving</title>
+
+  <style>
+    :root {
+      --bg: #160e20;
+      --panel: #281a35;
+      --purple: #bd8cff;
+      --lavender: #e4d1ff;
+      --muted: #c2b4ce;
+      --white: #fffaff;
+      --gold: #f0c982;
+      --line: rgba(228, 209, 255, 0.13);
+      --radius: 22px;
+      --max-width: 1120px;
+    }
+
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--white);
+      background:
+        radial-gradient(ellipse at 85% 5%, rgba(120, 67, 159, 0.2), transparent 34rem),
+        radial-gradient(ellipse at 0% 40%, rgba(106, 57, 142, 0.12), transparent 28rem),
+        var(--bg);
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      z-index: 10;
+      top: 0;
+      border-bottom: 1px solid var(--line);
+      background: rgba(22, 14, 32, 0.88);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--white);
+      font-size: 0.92rem;
+      font-weight: 750;
+      text-decoration: none;
+      letter-spacing: 0.06em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(189, 140, 255, 0.45);
+      border-radius: 12px;
+      color: var(--lavender);
+      background: rgba(189, 140, 255, 0.12);
+      font-family: Georgia, "Times New Roman", serif;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.82rem;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--lavender);
+    }
+
+    .nav-cta {
+      padding: 8px 14px;
+      border: 1px solid rgba(189, 140, 255, 0.4);
+      border-radius: 999px;
+      color: var(--lavender) !important;
+      background: rgba(189, 140, 255, 0.1);
+    }
+
+    .hero {
+      min-height: 630px;
+      display: grid;
+      align-items: center;
+      padding: 80px 0 74px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      align-items: center;
+      gap: 64px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 16px;
+      color: var(--purple);
+      font-size: 0.74rem;
+      font-weight: 800;
+      letter-spacing: 0.17em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      width: 24px;
+      height: 1px;
+      content: "";
+      background: var(--purple);
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 14px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(3.5rem, 8vw, 6.7rem);
+      font-weight: 500;
+      letter-spacing: -0.065em;
+      line-height: 0.98;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--purple);
+      font-style: italic;
+    }
+
+    .hero-name {
+      margin: 22px 0 6px;
+      color: var(--lavender);
+      font-size: 0.94rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+    }
+
+    .hero-date {
+      margin-bottom: 12px;
+      color: var(--gold);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .hero-copy {
+      max-width: 590px;
+      margin-bottom: 24px;
+      color: var(--muted);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.12rem;
+      font-style: italic;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 46px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 18px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      color: var(--lavender);
+      font-size: 0.86rem;
+      font-weight: 700;
+      text-decoration: none;
+      transition: transform 180ms ease;
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      border-color: transparent;
+      color: #241333;
+      background: var(--lavender);
+    }
+
+    .birthday-art {
+      position: relative;
+      min-height: 420px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid rgba(228, 209, 255, 0.16);
+      border-radius: 32px;
+      background:
+        radial-gradient(circle at 50% 34%, rgba(208, 164, 255, 0.28), transparent 34%),
+        linear-gradient(145deg, #39234d, #21152d 72%);
+      box-shadow: 0 30px 90px rgba(0, 0, 0, 0.25);
+    }
+
+    .birthday-art::before,
+    .birthday-art::after {
+      position: absolute;
+      content: "";
+      border: 1px solid rgba(228, 209, 255, 0.14);
+      border-radius: 50%;
+    }
+
+    .birthday-art::before {
+      width: 320px;
+      height: 320px;
+    }
+
+    .birthday-art::after {
+      width: 410px;
+      height: 410px;
+    }
+
+    .number-card {
+      position: relative;
+      z-index: 1;
+      width: 66%;
+      aspect-ratio: 0.82;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(228, 209, 255, 0.22);
+      border-radius: 48% 48% 38% 38%;
+      color: var(--lavender);
+      background:
+        linear-gradient(180deg, rgba(189, 140, 255, 0.12), rgba(38, 24, 51, 0.7)),
+        radial-gradient(ellipse at 50% 30%, #76518f, #30203d 72%);
+      text-align: center;
+    }
+
+    .number-card strong {
+      display: block;
+      color: rgba(255, 250, 255, 0.94);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(7rem, 15vw, 10rem);
+      line-height: 0.85;
+      font-weight: 400;
+    }
+
+    .number-card span {
+      display: block;
+      margin-top: 15px;
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+    }
+
+    .floating-note {
+      position: absolute;
+      right: 6%;
+      bottom: 8%;
+      z-index: 2;
+      padding: 12px 16px;
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      color: var(--lavender);
+      background: rgba(31, 20, 42, 0.92);
+      font-size: 0.78rem;
+    }
+
+    .floating-note strong {
+      display: block;
+      color: var(--gold);
+      font-size: 0.95rem;
+    }
+
+    .section {
+      padding: 78px 0;
+      border-top: 1px solid var(--line);
+      scroll-margin-top: 76px;
+    }
+
+    .section-heading {
+      max-width: 740px;
+      margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 10px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 500;
+      letter-spacing: -0.045em;
+      line-height: 1.12;
+    }
+
+    .section-heading > p:last-child {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: linear-gradient(145deg, rgba(50, 33, 63, 0.84), rgba(35, 23, 46, 0.78));
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 0.72fr 1.28fr;
+      gap: 18px;
+    }
+
+    .profile-card {
+      min-height: 260px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 28px;
+      background:
+        radial-gradient(circle at 90% 15%, rgba(189, 140, 255, 0.2), transparent 45%),
+        linear-gradient(145deg, #32213f, #21152d);
+    }
+
+    .profile-initial {
+      width: 66px;
+      height: 66px;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(228, 209, 255, 0.26);
+      border-radius: 21px;
+      color: var(--lavender);
+      background: rgba(189, 140, 255, 0.13);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 2rem;
+    }
+
+    .profile-card h3 {
+      margin: 20px 0 4px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.65rem;
+      font-weight: 500;
+    }
+
+    .profile-card p,
+    .text-card p,
+    .journey p,
+    .letter-card p {
+      color: var(--muted);
+    }
+
+    .profile-card p {
+      margin-bottom: 0;
+    }
+
+    .text-card {
+      padding: 28px;
+    }
+
+    .text-card p {
+      margin-bottom: 16px;
+    }
+
+    .text-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    .event-banner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 30px;
+      border: 1px solid rgba(189, 140, 255, 0.25);
+      border-radius: var(--radius);
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(189, 140, 255, 0.17), transparent 40%),
+        var(--panel);
+    }
+
+    .event-banner h3 {
+      margin-bottom: 8px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.7rem;
+      font-weight: 500;
+    }
+
+    .event-banner p {
+      max-width: 680px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .event-date {
+      min-width: 135px;
+      padding: 17px;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      color: var(--lavender);
+      text-align: center;
+      background: rgba(255, 255, 255, 0.035);
+    }
+
+    .event-date strong {
+      display: block;
+      color: var(--gold);
+      font-size: 1.75rem;
+    }
+
+    .event-date span {
+      font-size: 0.72rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .favorite-grid,
+    .goal-grid {
+      display: grid;
+      gap: 14px;
+    }
+
+    .favorite-grid {
+      grid-template-columns: repeat(5, 1fr);
+    }
+
+    .favorite-card {
+      min-height: 175px;
+      padding: 21px;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .favorite-card:hover,
+    .goal-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(189, 140, 255, 0.4);
+    }
+
+    .card-icon {
+      display: block;
+      margin-bottom: 18px;
+      color: var(--gold);
+      font-size: 1.4rem;
+    }
+
+    .favorite-card p {
+      margin: 0;
+      color: var(--lavender);
+      font-size: 0.91rem;
+      font-weight: 650;
+      line-height: 1.55;
+    }
+
+    .journey {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 24px;
+      padding: 28px;
+      border-left: 2px solid rgba(189, 140, 255, 0.65);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      background: linear-gradient(90deg, rgba(189, 140, 255, 0.1), rgba(40, 26, 53, 0.58));
+    }
+
+    .journey-number {
+      color: var(--purple);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 3rem;
+      line-height: 1;
+    }
+
+    .journey p {
+      margin: 0 0 17px;
+    }
+
+    .journey p:last-child {
+      margin-bottom: 0;
+    }
+
+    .goal-grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .goal-card {
+      min-height: 168px;
+      padding: 21px;
+      transition: transform 180ms ease, border-color 180ms ease;
+    }
+
+    .goal-card .card-icon {
+      margin-bottom: 14px;
+    }
+
+    .goal-card h3 {
+      margin-bottom: 6px;
+      color: var(--lavender);
+      font-size: 0.98rem;
+    }
+
+    .goal-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .faith-grid {
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 18px;
+    }
+
+    .gratitude-card {
+      padding: 28px;
+    }
+
+    .gratitude-card p {
+      margin-bottom: 16px;
+      color: var(--muted);
+    }
+
+    .gratitude-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    blockquote {
+      margin: 0;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      border: 1px solid rgba(189, 140, 255, 0.24);
+      border-radius: var(--radius);
+      color: var(--lavender);
+      background:
+        radial-gradient(ellipse at 90% 10%, rgba(189, 140, 255, 0.2), transparent 45%),
+        var(--panel);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(1.3rem, 3vw, 1.8rem);
+      line-height: 1.5;
+    }
+
+    blockquote cite {
+      margin-top: 18px;
+      color: var(--gold);
+      font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+      font-size: 0.72rem;
+      font-style: normal;
+      font-weight: 800;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    .letter-card {
+      padding: clamp(26px, 5vw, 44px);
+      background:
+        radial-gradient(ellipse at 100% 0%, rgba(189, 140, 255, 0.14), transparent 46%),
+        linear-gradient(145deg, rgba(50, 33, 63, 0.85), rgba(35, 23, 46, 0.8));
+    }
+
+    .letter-card p {
+      max-width: 800px;
+      margin-bottom: 17px;
+    }
+
+    .letter-card .salutation {
+      color: var(--lavender);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.35rem;
+    }
+
+    .letter-card .signoff {
+      margin: 24px 0 4px;
+      color: var(--lavender);
+    }
+
+    .letter-card .signature {
+      margin-bottom: 0;
+      color: var(--purple);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.3rem;
+      font-style: italic;
+    }
+
+    .reflection-card {
+      padding: clamp(28px, 6vw, 54px);
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 50% 0%, rgba(189, 140, 255, 0.2), transparent 55%),
+        linear-gradient(145deg, #30203d, #21152d);
+    }
+
+    .reflection-card h2 {
+      margin-bottom: 16px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(2.1rem, 6vw, 3.6rem);
+      font-weight: 500;
+      letter-spacing: -0.04em;
+    }
+
+    .reflection-card > p {
+      max-width: 740px;
+      margin: 0 auto 15px;
+      color: var(--muted);
+    }
+
+    .reflection-card blockquote {
+      max-width: 760px;
+      margin: 28px auto;
+      padding: 24px;
+      border: 1px solid var(--line);
+      background: rgba(189, 140, 255, 0.08);
+      font-size: clamp(1.15rem, 3vw, 1.55rem);
+      font-style: italic;
+    }
+
+    .birthday-shout {
+      margin: 30px 0 8px !important;
+      color: var(--gold) !important;
+      font-size: clamp(1.05rem, 3vw, 1.35rem);
+      font-weight: 850;
+      letter-spacing: 0.1em;
+    }
+
+    .grace-line {
+      color: var(--lavender) !important;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 1.2rem;
+      font-style: italic;
+    }
+
+    .final-name {
+      margin-top: 24px !important;
+      color: var(--lavender) !important;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+    }
+
+    footer {
+      padding: 28px 0 38px;
+      color: var(--muted);
+      text-align: center;
+      font-size: 0.82rem;
+    }
+
+    footer strong {
+      color: var(--lavender);
+      letter-spacing: 0.1em;
+    }
+
+    @media (max-width: 850px) {
+      .nav-links {
+        gap: 13px;
+      }
+
+      .nav-links a:not(.nav-cta) {
+        display: none;
+      }
+
+      .hero-grid {
+        grid-template-columns: 1fr 0.8fr;
+        gap: 30px;
+      }
+
+      .favorite-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .goal-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 620px) {
+      .container {
+        width: min(100% - 28px, var(--max-width));
+      }
+
+      .hero {
+        min-height: auto;
+        padding: 64px 0 56px;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .faith-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-grid {
+        gap: 34px;
+      }
+
+      .birthday-art {
+        min-height: 330px;
+      }
+
+      .event-banner {
+        grid-template-columns: 1fr;
+      }
+
+      .event-date {
+        width: fit-content;
+      }
+
+      .favorite-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .journey {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .section {
+        padding: 62px 0;
+      }
+    }
+
+    @media (max-width: 390px) {
+      .favorite-grid,
+      .goal-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-actions .button {
+        width: 100%;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <nav class="nav container" aria-label="Main navigation">
+      <a class="brand" href="#home">
+        <span class="brand-mark">A</span>
+        <span>ANGEL DUMAPAT</span>
+      </a>
+
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#favorites">Favorites</a>
+        <a href="#journey">Journey</a>
+        <a href="#faith">Faith</a>
+        <a class="nav-cta" href="#reflection">Birthday story</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero container" id="home">
+      <div class="hero-grid">
+        <div>
+          <p class="eyebrow">My 20th birthday · December 12, 2026</p>
+          <h1>Twenty <span>&amp; Thriving</span></h1>
+          <p class="hero-name">ANGEL DUMAPAT</p>
+          <p class="hero-date">Born December 12, 2006</p>
+          <p class="hero-copy">
+            A Year of God's Grace, Growth, and New Beginnings.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#about">Explore my story ↓</a>
+            <a class="button" href="#reflection">Birthday reflections</a>
+          </div>
+        </div>
+
+        <div class="birthday-art" aria-label="Celebrating twenty years">
+          <div class="number-card">
+            <div>
+              <strong>20</strong>
+              <span>Years of His grace</span>
+            </div>
+          </div>
+          <div class="floating-note">
+            <strong>12 · 12 · 2026</strong>
+            A new chapter begins
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">01 · About me</p>
+          <h2>A little about who I am.</h2>
+        </div>
+
+        <div class="about-grid">
+          <article class="panel profile-card">
+            <div class="profile-initial" aria-hidden="true">A</div>
+            <div>
+              <h3>Hello, I'm Angel.</h3>
+              <p>Student · Dreamer · Growing in faith</p>
+            </div>
+          </article>
+
+          <article class="panel text-card">
+            <p>
+              Hello! My name is Angel Dumapat, and I am turning 20 years old.
+              I am a student who continues to learn, grow, and discover my
+              purpose in life. I believe that every experience has a lesson
+              and every new day is an opportunity to become a better version
+              of myself.
+            </p>
+            <p>
+              Although the challenges I have faced have not always been easy,
+              I have learned so much from life. These experiences have helped
+              me grow and become more mature in who I am today. Every difficult
+              season carries a lesson, which is why I believe that not
+              everything bad that happens in life is meaningless. Sometimes,
+              those experiences are exactly what we need to grow. And, of
+              course, it is all by His grace. The Lord has carried me through
+              every season and taught me valuable lessons along the way.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="celebration">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">02 · My birthday celebration</p>
+          <h2>Twenty years, one beautiful new chapter.</h2>
+        </div>
+
+        <div class="event-banner">
+          <div>
+            <h3>A day to reflect and celebrate.</h3>
+            <p>
+              Turning 20 is more than celebrating another year of life. It is
+              a reminder of how far I have come, the challenges I have
+              overcome, and the beautiful opportunities waiting ahead. This
+              special day allows me to reflect on my journey and appreciate
+              every blessing that God has given me.
+            </p>
+          </div>
+          <div class="event-date">
+            <strong>12</strong>
+            <span>December 2026</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="favorites">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">03 · My favorite things</p>
+          <h2>The little things I treasure.</h2>
+        </div>
+
+        <div class="favorite-grid">
+          <article class="panel favorite-card">
+            <span class="card-icon" aria-hidden="true">✦</span>
+            <p>Serving God and growing in my faith.</p>
+          </article>
+          <article class="panel favorite-card">
+            <span class="card-icon" aria-hidden="true">♡</span>
+            <p>Appreciating life's simple blessings.</p>
+          </article>
+          <article class="panel favorite-card">
+            <span class="card-icon" aria-hidden="true">✧</span>
+            <p>Spending quality time with my family and friends.</p>
+          </article>
+          <article class="panel favorite-card">
+            <span class="card-icon" aria-hidden="true">❀</span>
+            <p>Creating meaningful memories.</p>
+          </article>
+          <article class="panel favorite-card">
+            <span class="card-icon" aria-hidden="true">☼</span>
+            <p>Learning new things and gaining experiences.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="journey">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">04 · My life journey</p>
+          <h2>My story belongs to the Lord.</h2>
+        </div>
+
+        <div class="journey">
+          <div class="journey-number">20</div>
+          <div>
+            <p>
+              Every chapter of my life has shaped the person I am today. I have
+              experienced challenges, changes, achievements, and lessons that
+              have helped me become stronger. My journey has not always been
+              easy, but I am grateful for every experience because it has
+              taught me patience, courage, and perseverance.
+            </p>
+            <p>
+              One thing I will never forget is the moment I was won over by
+              the Lord. I encountered Him during a G.E. gathering on April 12,
+              2025. I am incredibly thankful to Lotis because she was the one
+              who invited me to church. That was where my true life began.
+              When I decided to follow Jesus, the direction of my life changed
+              because I allowed the Lord to take control of it.
+            </p>
+            <p>
+              I have learned so much and experienced tremendous growth. I
+              became more aware, wiser, and more grounded in the truth. It was
+              not always easy because the Lord removed certain people, things,
+              and plans from my life that were not part of His will. However,
+              I have learned that not everything we lose is meant to be part
+              of our journey. Sometimes, letting go is part of God's purpose
+              for us.
+            </p>
+            <p>
+              That is why I can say that this entire journey belongs to the
+              Lord. He is the author of my story, and everything I have become
+              is by His grace.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="dreams">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">05 · My dreams and goals</p>
+          <h2>Growing toward the future I dream of.</h2>
+        </div>
+
+        <div class="goal-grid">
+          <article class="panel goal-card">
+            <span class="card-icon" aria-hidden="true">01</span>
+            <h3>Finish my studies</h3>
+            <p>Keep learning and work toward the future I envision.</p>
+          </article>
+          <article class="panel goal-card">
+            <span class="card-icon" aria-hidden="true">02</span>
+            <h3>Build a successful career</h3>
+            <p>Create a career with purpose and dedication.</p>
+          </article>
+          <article class="panel goal-card">
+            <span class="card-icon" aria-hidden="true">03</span>
+            <h3>Support my family</h3>
+            <p>Give back to the people who have supported and loved me.</p>
+          </article>
+          <article class="panel goal-card">
+            <span class="card-icon" aria-hidden="true">04</span>
+            <h3>Inspire and help others</h3>
+            <p>Encourage others and make a difference in their lives.</p>
+          </article>
+        </div>
+
+        <p style="margin: 20px 0 0; color: var(--muted);">
+          Above all, I want to keep God at the center of my plans and decisions.
+        </p>
+      </div>
+    </section>
+
+    <section class="section" id="faith">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">06 · My faith and gratitude</p>
+          <h2>All glory belongs to God.</h2>
+        </div>
+
+        <div class="faith-grid">
+          <article class="panel gratitude-card">
+            <p>
+              I am grateful to God for the gift of life, His unconditional
+              love, guidance, protection, and endless grace. Through every
+              season, He reminds me that I am never alone. I believe that His
+              plans are greater than my own, and I will continue to trust His
+              perfect timing.
+            </p>
+            <p>
+              Above all, I give God all the credit for everything that happens
+              in my life. He has carried me through every season, and I am
+              incredibly thankful to have Jesus in my life. Whatever I have
+              achieved, whatever I have overcome, and whoever I am becoming
+              are all because of His goodness and grace.
+            </p>
+          </article>
+
+          <blockquote>
+            “The Lord is my strength and my shield; my heart trusts in him,
+            and he helps me.”
+            <cite>Psalm 28:7</cite>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="letter">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">07 · A letter to my future self</p>
+          <h2>A reminder for the road ahead.</h2>
+        </div>
+
+        <article class="panel letter-card">
+          <p class="salutation"><strong>Dear Future Me,</strong></p>
+          <p>
+            I hope you never forget how far you have come. Remember the dreams
+            you once prayed for, the challenges you faced, and the moments
+            when you chose to keep going despite the difficulties.
+          </p>
+          <p>
+            Please do not stop pursuing the things you have already started.
+            I know you still have a long way to go and so much more to
+            accomplish. Keep dreaming, even when your dreams seem impossible,
+            because with God, everything is possible. Never give up!
+          </p>
+          <p>
+            Continue to trust God's timing. Do not compare your journey with
+            others because everyone has their own season. Keep learning,
+            growing, loving, and serving the Lord as you wait for your own
+            appointed season.
+          </p>
+          <p>
+            I hope that when you look back at this chapter, you will be proud
+            of the person you have become.
+          </p>
+          <p class="signoff"><strong>With love,</strong></p>
+          <p>Your 19-year-old self,</p>
+          <p class="signature">Angel Dumapat</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="reflection">
+      <div class="container">
+        <article class="panel reflection-card">
+          <p class="eyebrow" style="justify-content: center;">08 · My birthday reflections</p>
+          <h2>A grateful heart. A hopeful beginning.</h2>
+          <p>
+            Today, I celebrate not only my birthday but also the person I am
+            becoming. I welcome this new chapter with a grateful heart,
+            renewed faith, and excitement for what God has prepared for me.
+          </p>
+          <p>
+            Twenty years of life, countless lessons, beautiful memories, and
+            endless reasons to be thankful.
+          </p>
+          <p>
+            I may not know everything that the future holds, but I know that
+            God will continue to guide me every step of the way.
+          </p>
+
+          <blockquote>
+            “The LORD bless you and keep you; the LORD make his face shine on
+            you and be gracious to you; the LORD turn his face toward you and
+            give you peace.”
+            <cite>Numbers 6:24–26</cite>
+          </blockquote>
+
+          <p class="birthday-shout">HAPPY 20TH BIRTHDAY TO ME!</p>
+          <p class="grace-line">Twenty years of His goodness. A lifetime of His grace.</p>
+          <p class="final-name">ANGEL DUMAPAT 💜</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      Made with love for <strong>ANGEL'S 20TH</strong> · December 12, 2026
+    </div>
+  </footer>
+</body>
+</html>
